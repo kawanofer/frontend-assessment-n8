@@ -1,0 +1,30 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased !important;
+  font-family: Roboto, Helvetica, Arial, serif;
+  font-size: 14px;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 30px;
+  width: 100%;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
