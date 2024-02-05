@@ -20,7 +20,7 @@ const ContactAgentForm = () => {
   const {
     control,
     handleSubmit,
-    errors
+    formState: { errors }
   } = useForm({
     mode: 'onChange',
     resolver: yupResolver(schema),
@@ -39,68 +39,68 @@ const ContactAgentForm = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className='flex flex-col'>
           <Controller
-            control={control}
-            defaultValue=''
             name='fullName'
-            render={({ onChange, value }) =>
-              <TextField
+            control={control}
+            render={({ field }) => {
+              return <TextField
                 className='mb-0'
                 id='fullName'
-                onChange={onChange}
+                name='fullName'
                 placeHolder='Full Name *'
-                value={value}
+                {...field}
               />
-            }
+            }}
           />
-          {errors.fullName && <HelpText>{errors.fullName.message}</HelpText>}
+          {errors?.fullName && <HelpText>{errors?.fullName.message}</HelpText>}
 
           <Controller
             control={control}
             defaultValue=''
             name='email'
-            render={({ onChange, value }) =>
-              <TextField
+            render={({ field }) => {
+              return <TextField
                 className='mb-0 mt-5'
                 id='email'
-                onChange={onChange}
+                name='email'
                 placeHolder='Email *'
-                value={value}
+                {...field}
               />
-            }
+            }}
           />
-          {errors.email && <HelpText>{errors.email.message}</HelpText>}
+          {errors?.email && <HelpText>{errors?.email.message}</HelpText>}
 
           <Controller
             control={control}
             defaultValue=''
             name='phoneNumber'
-            render={({ onChange, value }) =>
-              <TextField
+            render={({ field }) => {
+              return <TextField
                 className='mb-0 mt-5'
                 id='phoneNumber'
-                onChange={onChange}
+                name='phoneNumber'
                 placeHolder='Phone Number *'
-                value={value}
+                {...field}
               />
-            }
+            }}
           />
-          {errors.phoneNumber && <HelpText>{errors.phoneNumber.message}</HelpText>}
+          {errors?.phoneNumber && <HelpText>{errors?.phoneNumber.message}</HelpText>}
 
           <Controller
             control={control}
             defaultValue=''
             name='comments'
-            render={({ onChange, value }) =>
-              <TextArea
+            render={({ field }) => {
+              return <TextArea
                 className='mt-5 mb-0'
                 id='comments'
-                onChange={onChange}
+                name='comments'
                 placeHolder='Comments *'
                 rows={5}
-                value={value}
-              />}
+                {...field}
+              />
+            }}
           />
-          {errors.comments && <HelpText>{errors.comments.message}</HelpText>}
+          {errors?.comments && <HelpText>{errors?.comments.message}</HelpText>}
 
           <div className='text-center'>
             <Button id='submitContactAgent' type='submit' variant='primary' className='w-56 h-16 mt-5 text-xl'>Contact Now</Button>

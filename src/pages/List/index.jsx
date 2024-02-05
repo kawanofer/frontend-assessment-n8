@@ -17,6 +17,8 @@ const List = () => {
   const [highestPrice, setHighestPrice] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
+  const propertiesSavedData = JSON.parse(window.localStorage.getItem('propertiesSaved'))
+
   useEffect(() => {
     getPropertyData()
   }, [])
@@ -89,7 +91,7 @@ const List = () => {
       <Modal isOpen={isModalOpen} onClose={handleCloseModal} title='Saved Properties'>
         <div>
           {
-            JSON.parse(window.localStorage.getItem('propertiesSaved')).map(item => (
+            propertiesSavedData?.map(item => (
               <span key={item.Id} className='flex mb-2'>
                 <FaHeart className='mt-1 mr-3' />
                 <h3 key={item.Id}>{item.Title}</h3>
