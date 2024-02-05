@@ -45,7 +45,7 @@ const Detail = () => {
 
   return (
     <>
-      <Header />
+      <Header breadcrumb={[{ route: '/', label: 'Properties' }, { label: 'Detail' }]} />
       <section>
         <div className='grid grid-cols-5 grid-rows-1 gap-4'>
           <div className='flex flex-col col-span-3'>
